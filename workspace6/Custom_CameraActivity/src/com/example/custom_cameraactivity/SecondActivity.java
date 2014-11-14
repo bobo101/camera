@@ -5,14 +5,18 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.hardware.Camera;
 import android.hardware.Camera.AutoFocusCallback;
 import android.hardware.Camera.Parameters;
 import android.hardware.Camera.PictureCallback;
+import android.hardware.Camera.Size;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -33,9 +37,13 @@ public class SecondActivity extends Activity {
 		mCamera = getCameraInstance();
         mCameraPreview = new CameraPreview(this, mCamera);
         Parameters parameters = mCamera.getParameters();
-        parameters.set("jpeg-quality", 70);
-        parameters.setPictureFormat(PixelFormat.JPEG); 
-        parameters.setPictureSize(4096, 2304);        //設定相機解析度
+        List<Size> sizes = parameters.getSupportedPictureSizes();
+        for (int i=0;i<sizes.size();i++){                         //取得相機支援解析度
+            Log.i("PictureSize", "Supported Size: "+"Width : " +sizes.get(i).width + "height : " + sizes.get(i).height);
+            }
+        parameters.set("jpeg-quality", 70); 
+        parameters.setPictureSize(sizes.get(1).width, sizes.get(1).height);        //設定相機解析度
+        //parameters.setPictureSize(2048,1152);
         parameters.setRotation(90);                   //設定相機輸出順時針旋轉90度
         mCamera.setParameters(parameters);
         FrameLayout preview = (FrameLayout) findViewById(R.id.camera_preview);
@@ -75,8 +83,11 @@ public class SecondActivity extends Activity {
 	
 	            } catch (IOException e) {
             }
-            camera.startPreview();
-            //需要手動重新startPreview，否則停在拍下的瞬間
+            camera.startPreview();                //需要手動重新startPreview，否則停在拍下的瞬間
+            Intent intent = new Intent();
+            intent.setClass(SecondActivity.this, MainActivity.class);
+            startActivity(intent); 
+            SecondActivity.this.finish(); 
         }
     };
 

@@ -1,0 +1,60 @@
+/**
+ * 
+ */
+package com.example.custom_cameraactivity;
+
+import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Bundle;
+import android.os.Environment;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+/**
+ * @author Peter
+ *
+ */
+public class ImgView extends Activity {
+	  private ImageView img;
+	        
+	  @Override
+	  protected void onCreate(Bundle savedInstanceState) 
+	  {
+		  super.onCreate(savedInstanceState);
+		  setContentView(R.layout.activity_img);
+		  img = (ImageView) findViewById(R.id.imageView1);
+		  if(checkSDCard())
+          {
+             //帶入SDCard內的圖片路徑(SDCard: DCIM資料夾/100MEDIA資料夾/001圖片)
+             img.setImageBitmap(getBitmapFromSDCard("MyCameraApp/IMG_20141113_115220.jpg"));
+          }
+          else Toast.makeText(ImgView.this, "尚未插入SDCard",Toast.LENGTH_SHORT).show();
+	  }
+	  private static boolean checkSDCard() 
+	   {            
+	      if(Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED))
+	      {                
+	         return true;            
+	      }             
+	      return false;         
+	   } 
+	        
+	   //讀取SDCard圖片，型態為Bitmap
+	   private static Bitmap getBitmapFromSDCard(String file) 
+	   {
+	      try  
+	      {
+	         String sd = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString();
+	         Bitmap bitmap = BitmapFactory.decodeFile(sd + "/" + file);
+	         return bitmap;
+	      }  
+	      catch (Exception e)  
+	      {  
+	         e.printStackTrace();  
+	         return null;  
+	      }  
+	   }
+
+}

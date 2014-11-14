@@ -5,21 +5,41 @@
 
     <ImageView
         android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentRight="true"
         android:src="@drawable/landing" />
 
     <Button
         android:id="@+id/button1"
+        style="android:"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="140dp"
-        android:gravity="center_vertical|center_horizontal|bottom"
+        android:layout_toLeftOf="@+id/button3"
+        android:layout_weight="1"
         android:onClick="gotoSecondActivity"
-        android:text="Button" />
+        android:text="Camera" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/button1"
+        android:layout_weight="1"
+        android:onClick="gotoWebActivity"
+        android:text="Web" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="29dp"
+        android:layout_weight="1"
+        android:onClick="gotoImgViewActivity"
+        android:text="ImgView" />
 
 </RelativeLayout>

@@ -1,0 +1,35 @@
+/**
+ * 
+ */
+package com.example.custom_cameraactivity;
+
+import android.app.Activity;
+import android.graphics.Bitmap;
+import android.util.DisplayMetrics;
+import android.widget.ImageView;
+
+/**
+ * @author Peter
+ *
+ */
+public class ImgShowActivity extends Activity {
+	private ImageView imageView;
+	private DisplayMetrics dm;
+	private Bitmap bitmap;
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		dm = new DisplayMetrics();
+		getWindowManager().getDefaultDisplay().getMetrics(dm);
+				
+		imageView = (ImageView)findViewById(R.id.image_view);
+		zoomInButton = (ImageButton)findViewById(R.id.zoomInButton);
+		zoomOutButton = (ImageButton)findViewById(R.id.zoomOutButton);
+		
+		bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.cat);
+		imageView.setImageBitmap(bitmap);
+		new ImageViewHelper(dm,imageView,bitmap,zoomInButton,zoomOutButton);     
+	}
+
+}

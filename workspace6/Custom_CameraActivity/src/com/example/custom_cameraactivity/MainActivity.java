@@ -12,7 +12,6 @@ import android.widget.Button;
 
 
 public class MainActivity extends Activity {
-	private Button button01;
 
     /** Called when the activity is first created. */
     @Override
@@ -24,6 +23,15 @@ public class MainActivity extends Activity {
     	Intent intent = new Intent(this,SecondActivity.class);
     	startActivity(intent);
     }
+    public void gotoWebActivity(View v){
+    	Intent intent = new Intent(this,WebViewActivity.class);
+    	startActivity(intent);
+    }
+    public void gotoImgViewActivity(View v){
+    	Intent intent = new Intent(this,ImgListActivity.class);
+    	startActivity(intent);
+    }
+
 	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

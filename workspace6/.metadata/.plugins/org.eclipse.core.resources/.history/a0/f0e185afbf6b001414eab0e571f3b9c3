@@ -1,0 +1,42 @@
+/**
+ * 
+ */
+package com.example.custom_cameraactivity;
+
+import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+/**
+ * @author Peter
+ *
+ */
+public class ImgShowActivity extends Activity {
+	private ImageView imageView;
+	private DisplayMetrics dm;
+	private Bitmap bitmap;
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_imgshow);
+		dm = new DisplayMetrics();
+		getWindowManager().getDefaultDisplay().getMetrics(dm);
+				
+		imageView = (ImageView)findViewById(R.id.image_view);
+		//取得intent裡的bundle
+        Bundle bundle = getIntent().getExtras();
+		
+		
+		bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.icon);
+		Toast.makeText(this.getParent(), "你按下"+bundle.getString("ImgPath"), Toast.LENGTH_SHORT).show();
+        //bitmap = BitmapFactory.decodeFil"e(bundle.getString("ImgPath"));
+        //bitmap = BitmapFactory.decodeFile("/storage/sdcard0/Picture/MyCameraApp/IMG_20141113_115220.jpg");
+		imageView.setImageBitmap(bitmap);
+		new ImageViewHelper(dm,imageView,bitmap);     
+	}
+
+}

@@ -3,7 +3,6 @@ package com.example.custom_cameraactivity;
 import java.io.IOException;
 
 import android.content.Context;
-import android.graphics.PixelFormat;
 import android.hardware.Camera;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -15,6 +14,7 @@ SurfaceHolder.Callback {
 	private Camera mCamera;
 	
 	// Constructor that obtains context and camera
+	@SuppressWarnings("deprecation")
 	public CameraPreview(Context context, Camera camera) {
 		super(context);
 		this.mCamera = camera;
