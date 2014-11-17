@@ -38,13 +38,26 @@ public class SecondActivity extends Activity {
         mCameraPreview = new CameraPreview(this, mCamera);
         Parameters parameters = mCamera.getParameters();
         List<Size> sizes = parameters.getSupportedPictureSizes();
+        int max_size=0,max_i=0;
+        float aspect;
+        float x,y;
         for (int i=0;i<sizes.size();i++){                         //取得相機支援解析度
-            Log.i("PictureSize", "Supported Size: "+"Width : " +sizes.get(i).width + "height : " + sizes.get(i).height);
+        	x=sizes.get(i).width;
+        	y=sizes.get(i).height;
+        	aspect=(x/y);
+        	if(max_size<sizes.get(i).width && aspect>1.7){
+            	max_size=sizes.get(i).width;
+            	max_i = i;            	
             }
+            Log.i("PictureSize", "Supported Size: "+"Width : " +sizes.get(i).width + "height : " + sizes.get(i).height+ 
+            		"aspect: "+aspect+ "Max Size :"+max_size);
+            
+        }
         parameters.set("jpeg-quality", 70); 
-        parameters.setPictureSize(sizes.get(1).width, sizes.get(1).height);        //設定相機解析度
+        //parameters.setPictureSize(sizes.get(1).width, sizes.get(1).height);        //設定相機解析度
+        parameters.setPictureSize(sizes.get(max_i).width, sizes.get(max_i).height);        //設定相機解析度
         //parameters.setPictureSize(2048,1152);
-        parameters.setRotation(90);                   //設定相機輸出順時針旋轉90度
+        //parameters.setRotation(90);                   //設定相機輸出順時針旋轉90度
         mCamera.setParameters(parameters);
         FrameLayout preview = (FrameLayout) findViewById(R.id.camera_preview);
         preview.addView(mCameraPreview);

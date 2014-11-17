@@ -34,4 +34,5 @@
 <fullyQualifiedTypeName name="android.graphics.Bitmap"/>
 <fullyQualifiedTypeName name="android.graphics.BitmapFactory"/>
 <fullyQualifiedTypeName name="android.os.Bundle"/>
+<fullyQualifiedTypeName name="android.graphics.Matrix"/>
 </qualifiedTypeNameHistroy>

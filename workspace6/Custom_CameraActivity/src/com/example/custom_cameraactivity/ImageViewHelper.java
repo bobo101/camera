@@ -1,5 +1,6 @@
 package com.example.custom_cameraactivity;
 
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
 import android.graphics.PointF;
@@ -121,7 +122,7 @@ public class ImageViewHelper {
 		
 		imageView.setOnTouchListener(new OnTouchListener(){
 
-			@Override
+			@SuppressLint("ClickableViewAccessibility") @Override
 			public boolean onTouch(View arg0, MotionEvent event) {
 				switch (event.getAction() & MotionEvent.ACTION_MASK) {
 
