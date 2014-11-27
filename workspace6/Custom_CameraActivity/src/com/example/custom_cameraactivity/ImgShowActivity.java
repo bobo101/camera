@@ -41,6 +41,8 @@ public class ImgShowActivity extends Activity {
                int width=bitmap.getWidth();
                //取得圖片的長度
                int height=bitmap.getHeight();
+               
+               m.preScale((float)0.5, (float)0.5);
                //順時針旋轉90度
                m.postRotate(90); 
                //產生新的旋轉後Bitmap檔
