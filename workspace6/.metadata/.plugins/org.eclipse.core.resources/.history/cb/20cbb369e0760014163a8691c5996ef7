@@ -1,0 +1,14 @@
+/**
+ * 
+ */
+package com.example.custom_cameraactivity;
+
+import android.app.Activity;
+
+/**
+ * @author Peter
+ *
+ */
+public class WebView4Activity extends Activity {
+
+}

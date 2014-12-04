@@ -34,7 +34,7 @@ public class WebViewActivity extends Activity {
 	    	}
 	    });
 		
-		wv.loadUrl("http://www.google.com.tw");   // 連到旗標網站
+		wv.loadUrl("http://www.hicat.com.tw/daily");   // 連到旗標網站
 	}
 
 	@Override

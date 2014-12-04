@@ -9,6 +9,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.PixelFormat;
@@ -34,6 +35,8 @@ public class SecondActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_second);
+		ActionBar ab = getActionBar();
+		ab.setTitle("¿ß¤p¸ô");
 		mCamera = getCameraInstance();
         mCameraPreview = new CameraPreview(this, mCamera);
         Parameters parameters = mCamera.getParameters();

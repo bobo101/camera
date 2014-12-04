@@ -21,6 +21,12 @@
         <activity android:name=".ImgListActivity" android:screenOrientation="portrait"/>
         <!--created by ADT ext plugin at 2014-11-14 12:14:27-->
         <activity android:name=".ImgShowActivity" android:screenOrientation="portrait"/>
+        <!--created by ADT ext plugin at 2014-11-28 17:20:45-->
+        <activity android:name=".WebView2Activity" android:screenOrientation="portrait"/>
+        <!--created by ADT ext plugin at 2014-11-28 17:23:06-->
+        <activity android:name=".WebView3Activity" android:screenOrientation="portrait"/>
+        <!--created by ADT ext plugin at 2014-11-28 17:24:34-->
+        <activity android:name=".WebView4Activity" android:screenOrientation="portrait"/>
     </application>
     <uses-feature android:name="android.hardware.camera"/>
     <uses-feature android:name="android.hardware.camera.autofocus"/>

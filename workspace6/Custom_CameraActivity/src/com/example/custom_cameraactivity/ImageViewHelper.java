@@ -32,8 +32,6 @@ public class ImageViewHelper {
 	private PointF mid = new PointF();
 	private float dist = 1f;
 	private DisplayMetrics dm;
-	private ImageButton zoomInButton;
-	private ImageButton zoomOutButton;
 	public ImageViewHelper(DisplayMetrics dm,ImageView imageView,Bitmap bitmap){
 		this.dm = dm;
 		this.imageView = imageView;

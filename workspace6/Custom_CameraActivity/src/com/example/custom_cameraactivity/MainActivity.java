@@ -27,6 +27,18 @@ public class MainActivity extends Activity {
     	Intent intent = new Intent(this,WebViewActivity.class);
     	startActivity(intent);
     }
+    public void gotoWeb2Activity(View v){
+    	Intent intent = new Intent(this,WebView2Activity.class);
+    	startActivity(intent);
+    }
+    public void gotoWeb3Activity(View v){
+    	Intent intent = new Intent(this,WebView3Activity.class);
+    	startActivity(intent);
+    }
+    public void gotoWeb4Activity(View v){
+    	Intent intent = new Intent(this,WebView4Activity.class);
+    	startActivity(intent);
+    }
     public void gotoImgViewActivity(View v){
     	Intent intent = new Intent(this,ImgListActivity.class);
     	startActivity(intent);
